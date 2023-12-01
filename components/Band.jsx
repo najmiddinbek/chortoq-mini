@@ -1,8 +1,6 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { BsChevronDown, BsChevronUp } from "react-icons/bs";
-import RemoveBtn from "./RemoveBtn";
 
 const Filter = () => {
     const [topics, setTopiclar] = useState([]);
@@ -97,7 +95,7 @@ const Filter = () => {
                 </div>
                 {Object.keys(usersAddedByDate)
                     .reverse()
-                    .map((date, index) => (
+                    .map((date, id) => (
                         <>
                             <div className="flex gap-2 items-center mt-10 justify-between mb-5">
                                 <h3 className="text-2xl text-white font-bold poppins">
@@ -109,7 +107,7 @@ const Filter = () => {
                                     .filter((t, index) =>
                                         filterStatus === null ? true : t.isChecked === filterStatus
                                     )
-                                    .map((t) => (
+                                    .map((t, index) => (
                                         <div key={t.id}>
                                             <div className="blur2 border py-3 px-4 rounded-md text-white">
                                                 <h1 className="text-4xl">Ismi: {t.title}</h1>
@@ -122,7 +120,6 @@ const Filter = () => {
                                                     }`}>
                                                     {t.isChecked ? "To`lov qilingan" : "To`lov qilinmagan"}
                                                 </button>
-                                                {/* <RemoveBtn id={t._id} /> */}
                                             </div>
                                         </div>
                                     ))}
